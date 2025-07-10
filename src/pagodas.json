@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Pagoda 1",
+    "latitude": 21.0285,
+    "longitude": 105.8542,
+    "description": "This is Pagoda 1 located in Hanoi."
+  },
+  {
+    "name": "Pagoda 2",
+    "latitude": 20.9986,
+    "longitude": 106.6923,
+    "description": "This is Pagoda 2 located in Hai Duong."
+  }
+]
