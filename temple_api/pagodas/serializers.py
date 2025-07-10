@@ -6,3 +6,4 @@ class PagodaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pagoda
         fields = '__all__'
+        
