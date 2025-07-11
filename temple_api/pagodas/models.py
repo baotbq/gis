@@ -18,7 +18,7 @@ class Pagoda(models.Model):
     def __str__(self):
         return self.name
     
-    class FavoritePagoda(models.Model):
-        user = models.ForeignKey(User, on_delete=models.CASCADE)
-        pagoda = models.ForeignKey(pagoda, on_delete=models.CASCADE)
-        created_at = models.DateTimeField(auto_now_add=True)
+    # class FavoritePagoda(models.Model):
+    #     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    #     pagoda = models.ForeignKey(pagoda, on_delete=models.CASCADE)
+    #     created_at = models.DateTimeField(auto_now_add=True)
