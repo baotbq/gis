@@ -4,7 +4,6 @@ import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import Select from 'react-select';
-import Modal from 'react-modal';
 
 const App = () => {
   const [pagodas, setPagodas] = useState([]);
@@ -17,9 +16,7 @@ const App = () => {
     description: ''
   });
 
-  const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
-
-  // Fetch pagodas data from the backend
+  // Fetch pagodas data from the backend API
   useEffect(() => {
     const fetchPagodas = async () => {
       try {
@@ -37,10 +34,6 @@ const App = () => {
   // Handle search input change
   const handleSearchChange = (inputValue) => {
     setSearchQuery(inputValue);
-    const filtered = pagodas.filter((pagoda) =>
-      pagoda.name.toLowerCase().includes(inputValue.toLowerCase())
-    );
-    setPagodas(filtered);
   };
 
   // Handle selection from the dropdown
@@ -54,7 +47,17 @@ const App = () => {
     setSearchQuery(newValue);  // Keep the text typed by the user
   };
 
-  // Handle adding a new pagoda
+  // Function to center the map on the selected pagoda
+  const CenterMapOnPagoda = () => {
+    const map = useMap();
+    if (selectedPagoda) {
+      const { latitude, longitude } = selectedPagoda.value;
+      map.flyTo([latitude, longitude], 14); // Fly to the selected pagoda's location with zoom level 14
+    }
+    return null;
+  };
+
+  // Function to handle adding a new pagoda
   const handleAddPagoda = async () => {
     const { name, latitude, longitude, description } = newPagoda;
     if (name && latitude && longitude && description) {
@@ -62,25 +65,24 @@ const App = () => {
         const response = await fetch('http://localhost:5000/api/pagodas', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
           },
-          body: JSON.stringify(newPagoda)
+          body: JSON.stringify(newPagoda),
         });
         const addedPagoda = await response.json();
         setPagodas([...pagodas, addedPagoda]); // Add the new pagoda to the list
         setNewPagoda({ name: '', latitude: '', longitude: '', description: '' }); // Clear the form
-        setIsModalOpen(false); // Close the modal
       } catch (error) {
         console.error('Error adding pagoda:', error);
       }
     }
   };
 
-  // Handle removing a pagoda
+  // Function to handle removing a pagoda
   const handleRemovePagoda = async (id) => {
     try {
       const response = await fetch(`http://localhost:5000/api/pagodas/${id}`, {
-        method: 'DELETE'
+        method: 'DELETE',
       });
       const removedPagoda = await response.json();
       setPagodas(pagodas.filter(pagoda => pagoda.id !== removedPagoda.id)); // Remove the pagoda from the list
@@ -94,35 +96,12 @@ const App = () => {
     pagoda.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  // Function to center the map on the selected pagoda
-  const CenterMapOnPagoda = () => {
-    const map = useMap();
-    if (selectedPagoda) {
-      const { latitude, longitude } = selectedPagoda.value;
-      map.flyTo([latitude, longitude], 14); // Fly to the selected pagoda's location with zoom level 14
-    }
-    return null;
-  };
-
   return (
     <div className="App">
       <h1>Pagodas in Vietnam</h1>
 
-      {/* Button to Open Modal */}
-      <button 
-        className="open-modal-btn" 
-        onClick={() => setIsModalOpen(true)}>
-        Add New Pagoda
-      </button>
-
-      {/* Modal for Adding Pagoda */}
-      <Modal
-        isOpen={isModalOpen}
-        onRequestClose={() => setIsModalOpen(false)} // Close modal
-        contentLabel="Add New Pagoda"
-        className="modal"
-        overlayClassName="overlay"
-      >
+      {/* Add Pagoda Form */}
+      <div className="add-pagoda-form">
         <h3>Add New Pagoda</h3>
         <input
           type="text"
@@ -153,8 +132,7 @@ const App = () => {
           onChange={(e) => setNewPagoda({ ...newPagoda, description: e.target.value })}
         />
         <button onClick={handleAddPagoda}>Add Pagoda</button>
-        <button onClick={() => setIsModalOpen(false)}>Close</button>
-      </Modal>
+      </div>
 
       {/* Search Box */}
       <div className="search-box">
