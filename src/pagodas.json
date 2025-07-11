@@ -1,14 +1,86 @@
 [
   {
-    "name": "Pagoda 1",
-    "latitude": 21.0285,
-    "longitude": 105.8542,
-    "description": "This is Pagoda 1 located in Hanoi."
+    "name": "One Pillar Pagoda",
+    "latitude": 21.0389,
+    "longitude": 105.8342,
+    "description": "One Pillar Pagoda is a historic Buddhist temple in Hanoi, known for its unique structure, which stands on a single pillar in the middle of a pond."
   },
   {
-    "name": "Pagoda 2",
-    "latitude": 20.9986,
-    "longitude": 106.6923,
-    "description": "This is Pagoda 2 located in Hai Duong."
+    "name": "Tran Quoc Pagoda",
+    "latitude": 21.0362,
+    "longitude": 105.8499,
+    "description": "Located on the West Lake in Hanoi, Tran Quoc Pagoda is one of the oldest and most famous pagodas in Vietnam, with a history dating back over 1,500 years."
+  },
+  {
+    "name": "Bao An Pagoda",
+    "latitude": 12.8520,
+    "longitude": 108.2293,
+    "description": "Bao An Pagoda, located in the central highlands of Vietnam, is known for its peaceful atmosphere and stunning views of the surrounding landscape."
+  },
+  {
+    "name": "Thien Mu Pagoda",
+    "latitude": 16.4634,
+    "longitude": 107.5781,
+    "description": "Thien Mu Pagoda is a famous Buddhist pagoda in Hue, known for its beautiful location by the Perfume River and its historical significance during the Nguyen dynasty."
+  },
+  {
+    "name": "Chùa Bái Đính",
+    "latitude": 20.3028,
+    "longitude": 105.6781,
+    "description": "Located in Ninh Bình, Bái Đính Pagoda is one of the largest and most famous pagodas in Vietnam, known for its massive statues and beautiful surroundings."
+  },
+  {
+    "name": "Linh Ung Pagoda",
+    "latitude": 16.0463,
+    "longitude": 108.2292,
+    "description": "Located in Da Nang, Linh Ung Pagoda is known for its 67-meter statue of the Buddha and its panoramic view of the city and the coastline."
+  },
+  {
+    "name": "Vinh Nghiem Pagoda",
+    "latitude": 10.7302,
+    "longitude": 106.6547,
+    "description": "Vinh Nghiem Pagoda in Ho Chi Minh City is a large and important Buddhist pagoda that serves as a spiritual center for the city's Buddhist community."
+  },
+  {
+    "name": "Tam Chuc Pagoda",
+    "latitude": 20.2850,
+    "longitude": 105.6989,
+    "description": "Tam Chuc Pagoda is a large Buddhist complex in Ha Nam province, known for its impressive architecture and serene surroundings."
+  },
+  {
+    "name": "Phat Tich Pagoda",
+    "latitude": 21.0549,
+    "longitude": 105.7330,
+    "description": "Phat Tich Pagoda is located in Bac Ninh province and is famous for its large statue of the Buddha and its historical significance in the development of Buddhism in Vietnam."
+  },
+  {
+    "name": "Chùa Hương",
+    "latitude": 20.7399,
+    "longitude": 105.9817,
+    "description": "Hương Pagoda is located in a scenic area near Hanoi, attracting pilgrims from all over Vietnam who come to worship and enjoy the beautiful landscape."
+  },
+  {
+    "name": "Ba Na Hills Pagoda",
+    "latitude": 15.9959,
+    "longitude": 108.3417,
+    "description": "Ba Na Hills Pagoda is located on top of the Ba Na Mountain near Da Nang. It is famous for the Golden Bridge and the stunning views of the surrounding area."
+  },
+  {
+    "name": "Giac Lam Pagoda",
+    "latitude": 10.7545,
+    "longitude": 106.5968,
+    "description": "Giac Lam Pagoda, one of the oldest pagodas in Ho Chi Minh City, has a rich history and is an important center for the city's Buddhist community."
+  },
+  {
+    "name": "Chùa Đồng",
+    "latitude": 21.3878,
+    "longitude": 106.2467,
+    "description": "Chùa Đồng, also known as the Copper Pagoda, is located on Mount Yen Tu in Quang Ninh. It is famous for its copper statue of the Buddha and its spiritual significance."
+  },
+  {
+    "name": "Sakyamuni Pagoda",
+    "latitude": 10.7930,
+    "longitude": 106.6954,
+    "description": "Sakyamuni Pagoda is located in Ho Chi Minh City and is known for its serene atmosphere and significant role in the practice of Vietnamese Buddhism."
   }
 ]
