@@ -69,11 +69,6 @@ const EditPagodaForm = ({ pagoda, onClose, onSuccess }) => {
         [name]: undefined
       }));
     }
-        opening_hours: '',
-        target_audience: '',
-        sect: '',
-        transportation: '',
-        events: ''
   };
 
   const handleImageChange = (e) => {
@@ -137,97 +132,305 @@ const EditPagodaForm = ({ pagoda, onClose, onSuccess }) => {
   };
 
   return (
-  <div className="edit-pagoda-form">
-    {/* Đảm bảo toàn bộ JSX nằm trong một thẻ cha */}
+  <div className="edit-pagoda-form" style={{
+    background: 'white',
+    padding: '30px',
+    borderRadius: '16px',
+    boxShadow: '0 4px 25px rgba(0, 0, 0, 0.15)',
+    width: '95%',
+    maxWidth: '800px',
+    maxHeight: '90vh',
+    overflowY: 'auto'
+  }}>
     <div style={{ textAlign: 'center', marginBottom: '30px' }}>
-      <h2 style={{ color: '#1976d2', fontWeight: '600' }}>Sửa Thông Tin Chùa</h2>
-      <p style={{ color: '#666' }}>Vui lòng điền đầy đủ các thông tin bắt buộc</p>
+      <h2 style={{ color: '#1976d2', fontSize: '1.8rem', fontWeight: '600', marginBottom: '10px' }}>Sửa Thông Tin Chùa</h2>
+      <p style={{ color: '#666', fontSize: '0.9rem' }}>Vui lòng điền đầy đủ các thông tin bắt buộc</p>
     </div>
-    <div className="form-row">
-      <div className="form-group">
-        <label className="form-label">Tên chùa *</label>
-        <input type="text" name="name" value={formData.name} onChange={handleInputChange} placeholder="Nhập tên chùa" className={errors.name ? 'input-error' : ''} />
-        {errors.name && <span className="error-text">{errors.name}</span>}
-      </div>
-      <div className="form-group">
-        <label className="form-label">Mô tả *</label>
-        <textarea name="description" value={formData.description} onChange={handleInputChange} placeholder="Nhập mô tả" className={errors.description ? 'input-error' : ''} style={{ minHeight: '100px', resize: 'vertical' }} />
-        {errors.description && <span className="error-text">{errors.description}</span>}
-      </div>
-      <div className="form-group">
-        <label className="form-label">Tỉnh/Thành phố *</label>
-        <input type="text" name="province" value={formData.province} onChange={handleInputChange} placeholder="Nhập tỉnh/thành phố" className={errors.province ? 'input-error' : ''} />
-        {errors.province && <span className="error-text">{errors.province}</span>}
-      </div>
-    </div>
-    <div className="form-row">
-      <div className="form-group">
-        <label className="form-label">Quận/Huyện *</label>
-        <input type="text" name="district" value={formData.district} onChange={handleInputChange} className={errors.district ? 'input-error' : ''} />
-        {errors.district && <span className="error-text">{errors.district}</span>}
-      </div>
-      <div className="form-group">
-        <label className="form-label">Phường/Xã *</label>
-        <input type="text" name="ward" value={formData.ward} onChange={handleInputChange} className={errors.ward ? 'input-error' : ''} />
-        {errors.ward && <span className="error-text">{errors.ward}</span>}
-      </div>
-      <div className="form-group">
-        <label className="form-label">Địa chỉ chi tiết</label>
-        <input type="text" name="address_detail" value={formData.address_detail} onChange={handleInputChange} />
-      </div>
-    </div>
-    <div className="form-row">
-      <div className="form-group">
-        <label className="form-label">Vĩ độ *</label>
-        <input type="number" step="any" name="latitude" value={formData.latitude} onChange={handleInputChange} className={errors.latitude ? 'input-error' : ''} />
-        {errors.latitude && <span className="error-text">{errors.latitude}</span>}
-      </div>
-      <div className="form-group">
-        <label className="form-label">Kinh độ *</label>
-        <input type="number" step="any" name="longitude" value={formData.longitude} onChange={handleInputChange} className={errors.longitude ? 'input-error' : ''} />
-        {errors.longitude && <span className="error-text">{errors.longitude}</span>}
-      </div>
-    </div>
-    <div className="form-row">
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+      gap: '20px',
+      marginBottom: '30px'
+    }}>
+      {/* Opening Hours */}
       <div className="form-group">
         <label className="form-label">Giờ mở cửa</label>
-        <input type="text" name="opening_hours" value={formData.opening_hours} onChange={handleInputChange} placeholder="VD: 6:00 - 18:00" />
+        <input type="text" name="opening_hours" value={formData.opening_hours} onChange={handleInputChange} placeholder="VD: 6:00 - 18:00" style={{width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #ddd', fontSize: '15px'}} />
       </div>
+      {/* Target Audience */}
       <div className="form-group">
         <label className="form-label">Đối tượng phục vụ</label>
-        <input type="text" name="target_audience" value={formData.target_audience} onChange={handleInputChange} placeholder="Người thường, sư, nico..." />
+        <input type="text" name="target_audience" value={formData.target_audience} onChange={handleInputChange} placeholder="Người thường, sư, nico..." style={{width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #ddd', fontSize: '15px'}} />
       </div>
+      {/* Sect */}
       <div className="form-group">
         <label className="form-label">Trường phái</label>
-        <input type="text" name="sect" value={formData.sect} onChange={handleInputChange} placeholder="Tịnh Độ, Đại thừa..." />
+        <input type="text" name="sect" value={formData.sect} onChange={handleInputChange} placeholder="Tịnh Độ, Đại thừa..." style={{width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #ddd', fontSize: '15px'}} />
       </div>
-    </div>
-    <div className="form-row">
+      {/* Transportation */}
       <div className="form-group">
         <label className="form-label">Phương tiện di chuyển</label>
-        <input type="text" name="transportation" value={formData.transportation} onChange={handleInputChange} placeholder="Xe máy, ô tô, xe đạp..." />
+        <input type="text" name="transportation" value={formData.transportation} onChange={handleInputChange} placeholder="Xe máy, ô tô, xe đạp..." style={{width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #ddd', fontSize: '15px'}} />
       </div>
+      {/* Events */}
       <div className="form-group">
         <label className="form-label">Sự kiện/lễ lớn</label>
-        <textarea name="events" value={formData.events} onChange={handleInputChange} placeholder="Các lễ lớn, sự kiện sắp diễn ra..." />
+        <textarea name="events" value={formData.events} onChange={handleInputChange} placeholder="Các lễ lớn, sự kiện sắp diễn ra..." style={{width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #ddd', fontSize: '15px', minHeight: '60px', resize: 'vertical'}} />
+      </div>
+      {/* Name Input */}
+      <div className="form-group">
+        <label className="form-label">Tên chùa *</label>
+        <input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleInputChange}
+          placeholder="Nhập tên chùa"
+          style={{
+            width: '100%',
+            padding: '12px',
+            borderRadius: '8px',
+            border: errors.name ? '1px solid #f44336' : '1px solid #ddd',
+            fontSize: '15px'
+          }}
+        />
+        {errors.name && <span style={{ color: '#f44336', fontSize: '0.8rem' }}>{errors.name}</span>}
+      </div>
+      {/* Description Input */}
+      <div className="form-group">
+        <label className="form-label">Mô tả *</label>
+        <textarea
+          name="description"
+          value={formData.description}
+          onChange={handleInputChange}
+          placeholder="Nhập mô tả"
+          style={{
+            width: '100%',
+            padding: '12px',
+            borderRadius: '8px',
+            border: errors.description ? '1px solid #f44336' : '1px solid #ddd',
+            fontSize: '15px',
+            minHeight: '100px',
+            resize: 'vertical'
+          }}
+        />
+        {errors.description && <span style={{ color: '#f44336', fontSize: '0.8rem' }}>{errors.description}</span>}
+      </div>
+      {/* Province Input */}
+      <div className="form-group">
+        <label className="form-label">Tỉnh/Thành phố *</label>
+        <input
+          type="text"
+          name="province"
+          value={formData.province}
+          onChange={handleInputChange}
+          placeholder="Nhập tỉnh/thành phố"
+          style={{
+            width: '100%',
+            padding: '12px',
+            borderRadius: '8px',
+            border: errors.province ? '1px solid #f44336' : '1px solid #ddd',
+            fontSize: '15px'
+          }}
+        />
+        {errors.province && <span style={{ color: '#f44336', fontSize: '0.8rem' }}>{errors.province}</span>}
+      </div>
+      {/* District Input */}
+      <div className="form-group">
+        <label className="form-label">Quận/Huyện *</label>
+        <input
+          type="text"
+          name="district"
+          value={formData.district}
+          onChange={handleInputChange}
+          placeholder="Nhập quận/huyện"
+          style={{
+            width: '100%',
+            padding: '12px',
+            borderRadius: '8px',
+            border: errors.district ? '1px solid #f44336' : '1px solid #ddd',
+            fontSize: '15px'
+          }}
+        />
+        {errors.district && <span style={{ color: '#f44336', fontSize: '0.8rem' }}>{errors.district}</span>}
+      </div>
+      {/* Ward Input */}
+      <div className="form-group">
+        <label className="form-label">Phường/Xã *</label>
+        <input
+          type="text"
+          name="ward"
+          value={formData.ward}
+          onChange={handleInputChange}
+          placeholder="Nhập phường/xã"
+          style={{
+            width: '100%',
+            padding: '12px',
+            borderRadius: '8px',
+            border: errors.ward ? '1px solid #f44336' : '1px solid #ddd',
+            fontSize: '15px'
+          }}
+        />
+        {errors.ward && <span style={{ color: '#f44336', fontSize: '0.8rem' }}>{errors.ward}</span>}
+      </div>
+      {/* Address Detail Input */}
+      <div className="form-group">
+        <label className="form-label">Địa chỉ chi tiết</label>
+        <input
+          type="text"
+          name="address_detail"
+          value={formData.address_detail}
+          onChange={handleInputChange}
+          placeholder="Nhập địa chỉ chi tiết"
+          style={{
+            width: '100%',
+            padding: '12px',
+            borderRadius: '8px',
+            border: '1px solid #ddd',
+            fontSize: '15px'
+          }}
+        />
+      </div>
+      {/* Latitude Input */}
+      <div className="form-group">
+        <label className="form-label">Vĩ độ *</label>
+        <input
+          type="number"
+          step="any"
+          name="latitude"
+          value={formData.latitude}
+          onChange={handleInputChange}
+          placeholder="Nhập vĩ độ"
+          style={{
+            width: '100%',
+            padding: '12px',
+            borderRadius: '8px',
+            border: errors.latitude ? '1px solid #f44336' : '1px solid #ddd',
+            fontSize: '15px'
+          }}
+        />
+        {errors.latitude && <span style={{ color: '#f44336', fontSize: '0.8rem' }}>{errors.latitude}</span>}
+      </div>
+      {/* Longitude Input */}
+      <div className="form-group">
+        <label className="form-label">Kinh độ *</label>
+        <input
+          type="number"
+          step="any"
+          name="longitude"
+          value={formData.longitude}
+          onChange={handleInputChange}
+          placeholder="Nhập kinh độ"
+          style={{
+            width: '100%',
+            padding: '12px',
+            borderRadius: '8px',
+            border: errors.longitude ? '1px solid #f44336' : '1px solid #ddd',
+            fontSize: '15px'
+          }}
+        />
+        {errors.longitude && <span style={{ color: '#f44336', fontSize: '0.8rem' }}>{errors.longitude}</span>}
       </div>
     </div>
-    <div className="form-group" style={{ marginBottom: '30px' }}>
-      <label className="form-label">Hình ảnh chùa</label>
-      <input type="file" accept="image/*" onChange={handleImageChange} />
-      <p className="image-hint">Định dạng hỗ trợ: PNG, JPEG, JPG (tối đa 5MB)</p>
+    {/* Image Upload */}
+    <div style={{ marginBottom: '30px' }}>
+      <label className="form-label" style={{
+        display: 'block',
+        marginBottom: '10px',
+        color: '#333',
+        fontSize: '0.95rem',
+        fontWeight: '500'
+      }}>
+        Hình ảnh chùa
+      </label>
+      <input
+        type="file"
+        accept="image/*"
+        onChange={handleImageChange}
+        style={{
+          width: '100%',
+          padding: '12px',
+          border: '2px dashed #ddd',
+          borderRadius: '8px',
+          backgroundColor: '#f8f9fa'
+        }}
+      />
+      <p style={{ color: '#666', fontSize: '0.8rem', marginTop: '8px' }}>
+        Định dạng hỗ trợ: PNG, JPEG, JPG (tối đa 5MB)
+      </p>
     </div>
+    {/* Image Preview */}
     {formData.image_url && (
-      <div className="image-preview">
-        <h4>Xem trước hình ảnh</h4>
-        <img src={formData.image_url} alt="Preview" />
+      <div style={{ marginBottom: '30px', textAlign: 'center' }}>
+        <h4 style={{ color: '#333', marginBottom: '10px' }}>Xem trước hình ảnh</h4>
+        <img
+          src={formData.image_url}
+          alt="Preview"
+          style={{
+            maxWidth: '300px',
+            maxHeight: '300px',
+            objectFit: 'contain',
+            border: '1px solid #ddd',
+            borderRadius: '8px',
+            padding: '5px'
+          }}
+        />
       </div>
     )}
-    <div className="form-actions">
-      <button onClick={handleSubmit} disabled={loading} className="save-btn">
-        {loading ? (<><span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Đang xử lý...</>) : ('Lưu thay đổi')}
+    {/* Buttons */}
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      gap: '15px',
+      marginTop: '20px'
+    }}>
+      <button
+        onClick={handleSubmit}
+        disabled={loading}
+        style={{
+          padding: '12px 30px',
+          background: loading ? '#cccccc' : '#4CAF50',
+          color: 'white',
+          border: 'none',
+          borderRadius: '8px',
+          fontSize: '16px',
+          fontWeight: '500',
+          cursor: loading ? 'not-allowed' : 'pointer',
+          transition: 'background 0.3s',
+          minWidth: '140px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '8px'
+        }}
+      >
+        {loading ? (
+          <>
+            <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Đang xử lý...
+          </>
+        ) : (
+          'Lưu thay đổi'
+        )}
       </button>
-      <button onClick={onClose} disabled={loading} className="cancel-btn">Hủy bỏ</button>
+      <button
+        onClick={onClose}
+        disabled={loading}
+        style={{
+          padding: '12px 30px',
+          background: '#f44336',
+          color: 'white',
+          border: 'none',
+          borderRadius: '8px',
+          fontSize: '16px',
+          fontWeight: '500',
+          cursor: 'pointer',
+          transition: 'background 0.3s',
+          minWidth: '140px'
+        }}
+      >
+        Hủy bỏ
+      </button>
     </div>
   </div>
   );
